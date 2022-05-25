@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="shabil nedumpally, online diary, online notepad, javascript, today, habits, my life">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+
+
+
+    <div  class="container">
+ <h1 class="title">My Diary</h1>
+  
+ <div class="content">
+     <button  class="add" onclick="text()" >+</button>
+
+     
+     
+
+     
+     
+
+     
+ </div>
+
+    </div>
+    
+
+    <script>
+        
+        function text(){
+            const date = new Date()
+            document.getElementsByClassName('content')[0].innerHTML=`<textarea name="" id="diary" cols="30" rows="10" placeholder="
+            
+${date.getDay()}/${date.getMonth()}/${date.getFullYear()}
+             
+            what a beautifull day!"></textarea> <button style="width:70px;height: 30px;border-radius:15px;border: none;box-shadow: 0 0 5px gray;    margin-left: 34%" onclick="save()">Save</button><button style="width:70px;height: 30px;border-radius:15px;border: none;box-shadow: 0 0 5px gray;    margin-left: 10%" onclick="next()">Next</button>`
+
+            document.getElementById('diary').innerText = localStorage.getItem('key')
+            
+        }
+
+       
+        function next(){
+            const date = new Date()
+            document.getElementsByClassName('content')[0].innerHTML =`<textarea name="" id="diaryn" cols="30" rows="10" placeholder="
+${date.getDay()}/ ${date.getMonth()}/ ${date.getFullYear()}
+            
+            what a memorable day"></textarea><button style="width:70px;height: 30px;border-radius:15px;border: none;box-shadow: 0 0 5px gray;    margin-left: 25%" onclick="text()">Previous</button> <button style="width:70px;height: 30px;border-radius:15px;border: none;box-shadow: 0 0 5px gray;    margin-left: 10%" onclick="save1()">Save</button><button style="width:70px;height: 30px;border-radius:15px;border: none;box-shadow: 0 0 5px gray;    margin-left: 10%" onclick="next()">Next</button>`
+            document.getElementById('diaryn').innerText = localStorage.getItem('keyn')
+        }
+        function save(){
+            const saved =document.getElementById('diary').value
+            
+            localStorage.setItem('key',saved)
+            
+        }
+        function save1(){
+const savedn =document.getElementById('diaryn').value
+            localStorage.setItem('keyn',savedn)
+        }
+        
+        
+        
+
+        
+      
+        
+
+        
+    </script>
+    
+</body>
+</html>

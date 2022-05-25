@@ -1,0 +1,58 @@
+@font-face {
+    font-family: "diary";
+    src: url(Rancho-Regular.ttf);
+}.title{
+    text-align:center;
+    color: white;margin-top: 5%;
+    font-family: diary;
+}
+*{
+    margin: 0;
+    
+}body{
+    background-color: black;
+}
+.container{
+    width: 100%;
+    height: 100%;
+   
+    
+}.content{
+    width: 50%;
+    height: 80vh;
+    background-color: lightgreen;
+    margin-left: 25%;
+    border-radius: 5%;
+    border: none;
+    box-shadow: 0  0 5px white;
+    
+    
+}#diary{
+    width:90%;
+    height: 80%;
+    margin: 4%;
+    border-radius: 10px;
+    
+    
+
+}#diary:hover{
+    outline: solid rgb(7, 255, 222);
+}#diaryn{
+    width:90%;
+    height: 80%;
+    margin: 4%;
+    border-radius: 10px;
+}#diaryn:hover{
+    outline: solid rgb(7, 255, 222);
+}.add{
+    width: 55px;
+    height: 55px;
+    border-radius: 5px; 
+    border: none;
+    margin-top: 20%;
+    margin-left: 48%;
+    font-size: 50px;
+    cursor: pointer; 
+}.add:hover{
+    box-shadow: 0 0 5px rgb(9, 192, 248);
+}
