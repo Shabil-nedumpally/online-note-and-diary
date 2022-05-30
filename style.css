@@ -3,14 +3,17 @@
     src: url(Rancho-Regular.ttf);
 }.title{
     text-align:center;
-    color: white;margin-top: 5%;
+    color: rgb(238, 69, 69);
+    margin-top: 1%;
     font-family: diary;
 }
 *{
     margin: 0;
     
 }body{
-    background-color: black;
+    background-image: url(https://c.neh.tw/thumb/f/720/5007965859872768.jpg);
+    background-repeat: no-repeat;
+    background-size:  cover;
 }
 .container{
     width: 100%;
@@ -20,11 +23,14 @@
 }.content{
     width: 50%;
     height: 80vh;
-    background-color: lightgreen;
+    background-color: rgb(25 25 27);
     margin-left: 25%;
     border-radius: 5%;
     border: none;
     box-shadow: 0  0 5px white;
+    padding: 5px;
+    padding-left: 10px;
+    opacity: 0.9;
     
     
 }#diary{
@@ -32,18 +38,19 @@
     height: 80%;
     margin: 4%;
     border-radius: 10px;
+    resize: unset;
     
     
 
 }#diary:hover{
-    outline: solid rgb(7, 255, 222);
+    outline: solid blackssddddcdtyyu;
 }#diaryn{
     width:90%;
     height: 80%;
     margin: 4%;
     border-radius: 10px;
 }#diaryn:hover{
-    outline: solid rgb(7, 255, 222);
+    outline: solid black;
 }.add{
     width: 55px;
     height: 55px;
@@ -54,5 +61,56 @@
     font-size: 50px;
     cursor: pointer; 
 }.add:hover{
-    box-shadow: 0 0 5px rgb(9, 192, 248);
+    box-shadow: 0 0 15px rgb(9, 192, 248);
+}.library{
+    width: 65px;
+    height: 50px;
+    border-radius: 15px; 
+    border: none;
+    margin-top: 20%;
+    margin-left: 48%;
+    font-size: 50px;
+    cursor: pointer; 
+}.library:hover{
+    box-shadow: 0 0 15px rgb(248, 232, 9);
+}#help{
+    margin-left: 90%;
+     margin-top: 12%; 
+    font-size: large;
+    color: yellow;
+     
+}#help:hover{
+     box-shadow: 0 0 15px red;
+     border-radius: 50%;
+}.help{
+    
+    width: 90%;
+    height: 86%;
+    margin-top: 5%;
+    background-color: white;
+    border-radius: 15px;
+    margin-left: 4%;
+}.copytright{
+    text-align:center;
+    color: rgb(238, 69, 69);
+    margin-top: 2%;
+    font-family: diary;
+    
+
+}#day1{
+    width: 91%;
+    height: 80%;
+    resize: none;
+    margin-left: 4%;
+    margin-top: 4%;
+    border-radius: 10px;
+}.add1, .library1{
+    width: 55px;
+    height: 55px;
+    border-radius: 5px; 
+    border: none;
+    margin-top: 20%;
+    margin-left: 30%;
+    font-size: 50px;
+    cursor: pointer; 
 }

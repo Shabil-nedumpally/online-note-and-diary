@@ -5,8 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="shabil nedumpally, online diary, online notepad, javascript, today, habits, my life">
-    <title>Document</title>
+    <title>My Diary</title>
     <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+
     
 </head>
 <body>
@@ -16,8 +18,17 @@
     <div  class="container">
  <h1 class="title">My Diary</h1>
   
- <div class="content">
+ <div class="content" >
+     <h2 style="color: white;margin-top:2% ;margin-left: 2%;" id="dateshow"></h2>
      <button  class="add" onclick="text()" >+</button>
+     <button  class="library" onclick="library()" ><i class='bx bx-book-open'></i></button>
+
+     <div><i id="help" class='bx bx-help-circle' onclick="help()" ></i></div> 
+
+
+     
+     
+
 
      
      
@@ -28,46 +39,145 @@
      
  </div>
 
+ <h4 class="copytright"> © Shabil Nedumpally</h4>
+
     </div>
     
 
     <script>
-        
+
+         const obj =[]// data store 
+        var objno = 0;
+        var c = 0 // next key value increment 
+        var o = 0;
+        var  a = localStorage.getItem('position')*1 +1
+
         function text(){
+            
             const date = new Date()
             document.getElementsByClassName('content')[0].innerHTML=`<textarea name="" id="diary" cols="30" rows="10" placeholder="
             
-${date.getDay()}/${date.getMonth()}/${date.getFullYear()}
+${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}
              
-            what a beautifull day!"></textarea> <button style="width:70px;height: 30px;border-radius:15px;border: none;box-shadow: 0 0 5px gray;    margin-left: 34%" onclick="save()">Save</button><button style="width:70px;height: 30px;border-radius:15px;border: none;box-shadow: 0 0 5px gray;    margin-left: 10%" onclick="next()">Next</button>`
+            what a beautifull day!"></textarea> <button style="width:70px;height: 30px;border-radius:15px;border: none;box-shadow: 0 0 5px gray;    margin-left: 26%" onclick="menu()">Menu</button>
+             <button style="width:70px;height: 30px;border-radius:15px;border: none;box-shadow: 0 0 5px gray;    margin-left: 10%" onclick="save()">Save</button><button style="width:70px;height: 30px;border-radius:15px;border: none;box-shadow: 0 0 5px gray;    margin-left: 10%" onclick="text()">Add new</button>`
+             
 
-            document.getElementById('diary').innerText = localStorage.getItem('key')
-            
-        }
-
-       
-        function next(){
-            const date = new Date()
-            document.getElementsByClassName('content')[0].innerHTML =`<textarea name="" id="diaryn" cols="30" rows="10" placeholder="
-${date.getDay()}/ ${date.getMonth()}/ ${date.getFullYear()}
-            
-            what a memorable day"></textarea><button style="width:70px;height: 30px;border-radius:15px;border: none;box-shadow: 0 0 5px gray;    margin-left: 25%" onclick="text()">Previous</button> <button style="width:70px;height: 30px;border-radius:15px;border: none;box-shadow: 0 0 5px gray;    margin-left: 10%" onclick="save1()">Save</button><button style="width:70px;height: 30px;border-radius:15px;border: none;box-shadow: 0 0 5px gray;    margin-left: 10%" onclick="next()">Next</button>`
-            document.getElementById('diaryn').innerText = localStorage.getItem('keyn')
         }
         function save(){
-            const saved =document.getElementById('diary').value
+           
+           
+            if(!localStorage.getItem(`${a}key`)){
+                var saved =document.getElementById('diary').value
+                obj.push({saved})
+                console.log(obj)
+                console.log(objno)
+                const sha = JSON.stringify(obj)
+                console.log(sha)
+                localStorage.setItem(`${objno++}key`,sha)
+                localStorage.setItem('position',objno)
+                console.log('finished')
+             }else{
+                var saved =document.getElementById('diary').value
+                obj.push({saved})
+                const sha = JSON.stringify(obj)
+                console.log(sha)
+                localStorage.setItem(`${++a}key`,sha)
+                console.log(a);
+                console.log('not finished')
+                 
+             }
+             
+                
+               
+                
+             
+             
             
-            localStorage.setItem('key',saved)
-            
-        }
-        function save1(){
-const savedn =document.getElementById('diaryn').value
-            localStorage.setItem('keyn',savedn)
-        }
-        
-        
-        
+                
+                
 
+
+}
+    
+       
+    //    next button
+        function next(){
+            
+            
+           var  ab =localStorage.getItem(`${c}key`)
+           console.log(ab)
+             const pin =JSON.parse(ab)
+             console.log(c)
+             console.log(pin)
+            const u = pin[o].saved 
+            
+            ++o
+            ++c
+             localStorage.setItem('cnum',c)
+             document.getElementById('day1').value =u
+              const str = JSON.parse(pin)
+             
+             
+             
+             
+        
+ }
+        // save to local storage 
+        
+        
+        // help button
+        function help(){
+            document.getElementsByClassName('content')[0].innerHTML= `<div class="help"> <button  class="add1" onclick="text()" >+</button> This is New Diary add option <button  class="library1" onclick="library()" ><i class='bx bx-book-open'></i></button>  saved notes </div>
+            <button style="width:70px;height: 30px;border-radius:15px;border: none;box-shadow: 0 0 5px gray;    margin-left: 44%;    margin-top: 1%;" onclick="menu()">Menu</button>`
+        }
+        const date = new Date()
+        document.getElementById('dateshow').innerHTML=`${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`
+        
+        
+// library onclick
+        function library(){
+        document.getElementsByClassName('content')[0].innerHTML=`<textarea name="" id="day1" cols="30" rows="10"></textarea><button style="width:70px;height: 30px;border-radius:15px;border: none;box-shadow: 0 0 5px gray;    margin-left: 23%" onclick="menu()">Menu</button>
+            <button style="width:70px;height: 30px;border-radius:15px;border: none;box-shadow: 0 0 5px gray;    margin-left: 10%" onclick="next()">Next</button>
+            <button style="width:70px;height: 30px;border-radius:15px;border: none;box-shadow: 0 0 5px gray;    margin-left: 10%" onclick="dele()">Delete</button>`
+            
+           
+             document.getElementById('day1').value = 'please click next button'
+             
+
+            
+        }
+        
+        // menu button
+        function menu(){
+            document.location.reload()
+        }
+        // delete button
+
+        function dele(){
+            localStorage.clear()
+            document.getElementById('day1').value = 'library full deleted'
+            
+        }
+        // previous button
+
+        function previous(){
+            var ac = localStorage.getItem('cnum')-1
+            console.log(ac,"this is ac")
+            
+            var  ab =localStorage.getItem(`${ac--}key`)
+           console.log(ab)
+             const pin =JSON.parse(ab)
+             console.log(c)
+             console.log(pin)
+            const u = pin[0].saved 
+            
+            
+            
+             
+             document.getElementById('day1').value =u
+              
+        }
         
       
         
